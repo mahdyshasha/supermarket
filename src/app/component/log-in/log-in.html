@@ -1,0 +1,22 @@
+<app-nav2 >  </app-nav2>
+<body>
+    
+
+<div class="container">
+    <h2>تسجيل</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <input formControlName="firstName" placeholder="الاسم الأول (بالحرف العربية)">
+    <input formControlName="lastName" placeholder="الكنية (بالحرف العربية)">
+    <input formControlName="email" type="email" placeholder="عنوان البريد الإلكتروني">
+    <input formControlName="password" type="password" placeholder="كلمة المرور">
+    <input formControlName="confirmPassword" type="password" placeholder="تأكيد كلمة المرور">
+<div class="agree">
+    <label>لقد قرأت ووافقت على الشروط والأحكام</label>
+  <input type="checkbox" formControlName="agree">
+</div>
+    <br>
+    <button type="submit" style="width: 50%; height: 40px; border-radius: 5px; background-color: #2e7d32; color: white; border: none; cursor: pointer;">تسجيل</button>
+  </form>
+</div>
+</body>
+<app-footer> </app-footer>

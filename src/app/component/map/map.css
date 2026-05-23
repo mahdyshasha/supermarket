@@ -1,0 +1,123 @@
+/* الحاوية الأساسية */
+.main-layout-wrapper {
+  display: flex; /* لتقسيم الشاشة يمين ويسار */
+  height: 100vh; /* تأخذ كامل طول الشاشة */
+  direction: rtl;
+  overflow: hidden; /* يمنع ظهور سكرول للمتصفح ككل */
+}
+
+/* الحاوية التي تضم الخريطة */
+.map-side {
+  flex: 1.2;
+  height: calc(100vh - 40px); /* ترك مسافة بسيطة من الأعلى والأسفل */
+  margin: 20px; /* لإظهار الـ Shadow والحواف بوضوح */
+  border-radius: 24px; /* التفاف حواف كبير وفخم */
+  overflow: hidden; /* لضمان أن الخريطة تتبع انحناء الحواف */
+  
+  /* ظل احترافي ناعم وعميق */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); 
+  
+  /* إطار خفيف جداً لتحديد الشكل */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
+  /* تأثير انسيابي عند تحديث الخريطة */
+  transition: all 0.5s ease-in-out;
+}
+
+/* تنسيق الـ iframe نفسه */
+.map-side iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(10%) contrast(1.1); /* لمسة سينمائية خفيفة على الخريطة */
+  display: block;
+}
+
+/* حاوية التغليف الكبرى لضمان ظهور الظل */
+.main-layout-wrapper {
+  display: flex;
+  height: 100vh;
+  background-color: #f0f2f5; /* لون خلفية هادئ يبرز بياض الكروت وظل الخريطة */
+  direction: rtl;
+  align-items: center; /* توسيط العناصر عمودياً */
+}
+
+/* القائمة الجانبية (اليسار) */
+.list-side {
+  flex: 0.8;
+  height: calc(100vh - 40px);
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* القائمة على اليسار */
+.list-side {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر تحت بعض */
+  background-color: #fcfcfc;
+}
+
+.header-box {
+  padding: 25px;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+/* قائمة الكروت مع سكرول داخلي */
+.cards-list {
+  flex: 1;
+  overflow-y: auto; /* السماح بالتمرير داخل القائمة فقط */
+  padding: 15px;
+}
+
+/* الكارد بتنسيق فخم */
+.luxury-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1px solid #efefef;
+  transition: all 0.3s ease;
+}
+
+.luxury-card:hover {
+  transform: translateX(-5px); /* حركة خفيفة لليسار عند اللمس */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  border-color: #007bff;
+}
+
+.luxury-card.active {
+  border-right: 5px solid #007bff; /* تمييز الكارد المختار */
+  background: #f0f7ff;
+}
+
+.luxury-card h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.luxury-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* تخصيص شكل السكرول بار */
+.cards-list::-webkit-scrollbar {
+  width: 5px;
+}
+.cards-list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}

@@ -1,0 +1,63 @@
+<nav class="navbar-container">
+  <div class="logo-section" routerLink="/">
+    <img src="https://4whats.net/wp-content/uploads/2023/06/b9b3c47f-590c-9afc-97bc-b866bad86a72-1024x576.png" alt="Logo" class="logo">
+    <span class="brand-name">Super <span class="highlight">Market</span></span>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="ما الذي تبحث عنه اليوم؟">
+    <button class="search-btn">
+      <span class="material-icons">search</span>
+    </button>
+  </div>
+
+  <div class="nav-actions">
+   <div class="icons-group">
+  <a [routerLink]="['/favor']" class="icon-link wishlist" title="المفضلة">
+    <span class="material-icons">favorite_border</span>
+    <span class="badge">{{ wishlistCount() }}</span>
+  </a>
+
+  <a [routerLink]="['/box']" class="icon-link cart" title="السلة">
+    <span class="material-icons">shopping_cart</span>
+    <span class="badge">{{ cartCount() }}</span>
+  </a>
+</div>
+
+  <div class="auth-buttons">
+ @if (!displayName || displayName === 'Log In') {
+      <button (click)="openRegisterModal()" class="btn-nav btn-register">
+        <span class="material-icons">person_add</span> Register
+      </button>
+
+      <a [routerLink]="'/login'" class="btn-nav btn-login">
+        <span class="material-icons">login</span> Login
+      </a>
+    } 
+    
+   @else {
+        <button mat-button [matMenuTriggerFor]="userMenu" class="user-profile-btn">
+          <mat-icon>account_circle</mat-icon>
+          <mat-icon>arrow_drop_down</mat-icon>
+          {{ displayName }}
+        </button>
+
+        <mat-menu #userMenu="matMenu">
+         <button mat-menu-item [routerLink]="['/fault']">
+         <mat-icon>person</mat-icon>
+         <span >الملف الشخصي</span>
+         </button>
+          <hr>
+          <button mat-menu-item (click)="logout()">
+            <mat-icon color="warn">logout</mat-icon>
+            <span style="color: red;">تسجيل الخروج</span>
+          </button>
+        </mat-menu>
+      }
+</div>
+    <a href="#" class="connect-link">
+      <span class="material-icons">support_agent</span>
+      Connect
+    </a>
+  </div>
+</nav>

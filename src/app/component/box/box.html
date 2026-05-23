@@ -1,0 +1,61 @@
+<div class="cart-page-container">
+  <h1 class="page-title">سلة المشتريات ({{ cartItems().length }})</h1>
+
+  @if (cartItems().length > 0) {
+    <div class="cart-content">
+      <div class="cart-items-list">
+        @for (item of cartItems(); track item.id) {
+          <div class="cart-item-card">
+            <img [src]="item.thumbnail" [alt]="item.title">
+            <div class="item-details">
+              <h4>{{ item.title }}</h4>
+              <p class="category">{{ item.category }}</p>
+              <span class="price">${{ item.price }}</span>
+            </div>
+            <button class="remove-btn" (click)="removeFromCart(item.id)">
+              <span class="material-icons">delete</span>
+            </button>
+          </div>
+        }
+      </div>
+
+      <aside class="checkout-summary">
+        <div class="summary-card">
+          <h3>ملخص الطلب</h3>
+          <div class="summary-row">
+            <span>عدد المنتجات:</span>
+            <span>{{ cartItems().length }}</span>
+          </div>
+          <div class="summary-row">
+            <span>الشحن:</span>
+            <span class="free">مجاني</span>
+          </div>
+          <hr>
+          <div class="summary-row total">
+            <span>المجموع النهائي:</span>
+            <span>${{ totalPrice().toFixed(2) }}</span>
+          </div>
+          <button class="checkout-btn" (click)="checkout()">إتمام عملية الشراء</button>
+          <ng-template #confirmDialog>
+  <h2 mat-dialog-title dir="rtl">تأكيد عملية الدفع</h2>
+  <mat-dialog-content dir="rtl">
+    <p>هل أنت متأكد من رغبتك في إتمام عملية الدفع؟</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" dir="rtl">
+    <button mat-button mat-dialog-close color="warn">إلغاء</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="primary">نعم، تأكيد</button>
+  </mat-dialog-actions>
+</ng-template>
+    
+        </div>
+      </aside>
+    </div>
+  } @else {
+    <div class="empty-cart">
+      <span class="material-icons">shopping_basket</span>
+      <h2>سلتك فارغة حالياً!</h2>
+      <p>اكتشف أحدث العروض وأضف بعض المنتجات لسلتك.</p>
+      <button  class="shop-now" [routerLink]="['/']">تسوق الآن</button>
+    </div>
+  }
+</div>

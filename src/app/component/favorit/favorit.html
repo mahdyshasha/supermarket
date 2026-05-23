@@ -1,0 +1,55 @@
+<div class="cart-page-container">
+  <h1 class="page-title">قائمة المنتجات المفضلة ({{ wishlistItems().length }})</h1>
+
+  @if (wishlistItems().length > 0) {
+    <div class="cart-content">
+      
+      <div class="cart-items-list">
+        @for (item of wishlistItems(); track item.id) {
+          <div class="cart-item-card">
+            <img [src]="item.thumbnail" [alt]="item.title">
+            <div class="item-details">
+              <h4>{{ item.title }}</h4>
+              <p class="category">{{ item.category }}</p>
+              <span class="price">${{ item.price }}</span>
+            </div>
+            
+            <button class="remove-btn" (click)="removeFromWishlist(item.id)" title="إزالة من المفضلة">
+              <span class="material-icons">favorite</span>
+            </button>
+          </div>
+        }
+      </div>
+
+      <aside class="checkout-summary">
+        <div class="summary-card">
+          <h3>إجراءات القائمة</h3>
+          <div class="summary-row">
+            <span>عدد المحفوظات:</span>
+            <span>{{ wishlistItems().length }} منتج</span>
+          </div>
+          <div class="summary-row">
+            <span>حالة التوفر:</span>
+            <span class="free">متوفرة للطلب</span>
+          </div>
+          <hr>
+          
+          <p style="font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 20px;">
+            يمكنك إضافة هذه المنتجات إلى سلة المشتريات في أي وقت لإتمام عملية الشراء.
+          </p>
+
+          <button class="checkout-btn" [routerLink]="['/box']">الذهاب لسلة المشتريات</button>
+        </div>
+      </aside>
+    </div>
+
+  } @else {
+    <div class="empty-cart">
+      <span class="material-icons">heart_broken</span>
+      <h2>قائمة المفضلة فارغة!</h2>
+      <p>لم تقم بحفظ أي منتجات حتى الآن. تصفح المتجر وأضف ما يعجبك هنا.</p>
+
+      <button [routerLink]="['/']" class="shop-now">ابدأ باكتشاف المنتجات</button>
+    </div>
+  }
+</div>

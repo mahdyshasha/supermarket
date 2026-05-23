@@ -1,0 +1,65 @@
+<app-nav3></app-nav3>
+
+<div class="profile-container" [formGroup]="profileForm" *ngIf="profileForm">
+  <aside class="profile-sidebar">
+    <div class="user-info-card">
+      <div class="avatar-wrapper">
+        <img src="https://ui-avatars.com/api/?name={{displayName}}&background=4CAF50&color=fff&size=128" alt="User Avatar">
+        <button class="edit-avatar"><span class="material-icons">photo_camera</span></button>
+      </div>
+      <h2>{{ displayName }}</h2>
+      <p class="user-email">{{ profileForm.get('email')?.value }}</p>
+      <span class="user-badge">عميل مميز</span>
+    </div>
+
+    <nav class="profile-nav">
+      <a href="#" class="active"><span class="material-icons">person</span> المعلومات الشخصية</a>
+      <a  routerLink="/ProductList" routerLinkActive="active"><span class="material-icons" >shopping_bag</span> طلباتي</a>
+      <a [routerLink]="['/favor']" routerLinkActive="active"><span class="material-icons">favorite</span> المفضلة</a>
+      <a [routerLink]="['/map']" routerLinkActive="active"><span class="material-icons">location_on</span> العناوين</a>
+      <button class="logout-link" (click)="logout()"><span class="material-icons">logout</span> تسجيل الخروج</button>
+    </nav>
+  </aside>
+
+  <main class="profile-content">
+    <div class="content-header">
+      <h3>إعدادات الحساب</h3>
+  <button class="btn-save" (click)="confirmSave()">حفظ التغييرات</button>
+    </div>
+
+    <div class="info-grid">
+      <div class="input-group">
+        <label>الاسم بالكامل</label>
+        <input type="text" formControlName="firstName" placeholder="أدخل اسمك">
+      </div>
+      <div class="input-group">
+        <label>البريد الإلكتروني</label>
+        <input type="email" formControlName="email" placeholder="example@mail.com">
+      </div>
+      <div class="input-group">
+        <label>رقم الهاتف</label>
+        <input type="tel" formControlName="phone" placeholder="+966 5xxxxxxx">
+      </div>
+      <div class="input-group">
+        <label>تاريخ الميلاد</label>
+        <input type="date" formControlName="birthDate">
+      </div>
+    </div>
+
+    <div class="security-section">
+      <h4>تغيير كلمة المرور</h4>
+      <div class="info-grid">
+        <div class="input-group">
+          <label>كلمة المرور الحالية</label>
+          <input type="password" formControlName="currentPassword" placeholder="********">
+        </div>
+        <div class="input-group">
+          <label>كلمة المرور الجديدة</label>
+          <input type="password" formControlName="newPassword" placeholder="********">
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<app-footer></app-footer>

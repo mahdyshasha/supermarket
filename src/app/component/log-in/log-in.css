@@ -1,0 +1,85 @@
+
+body {
+padding-top: 100px;  
+
+    
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #a5d6a7;
+  width: 350px;
+  text-align: center;
+margin: auto;
+}
+
+h2 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #c8e6c9;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.terms {
+  font-size: 14px;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.submit-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.login-link a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+.agree {
+  display: inline-flex;     /* يضمن البقاء ضمن السطر */
+  align-items: center;      /* محاذاة عمودية متناسقة */
+  gap: 8px;                 /* مسافة بين الـ checkbox والنص */
+  margin: 10px 0;
+}
+
+.agree label {
+  margin: 0;
+  white-space: nowrap;      /* يمنع نزول النص لسطر جديد */
+}
+/* طبّق العرض الكامل فقط على الحقول النصية */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #c8e6c9;
+  border-radius: 5px;
+  display: block; /* تمام للحقول النصية */
+}
+
+/* أعِد ضبط الـ checkbox */
+form input[type="checkbox"] {
+  width: auto;
+  display: inline-block;
+  margin: 0;
+}

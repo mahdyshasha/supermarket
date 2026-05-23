@@ -1,0 +1,257 @@
+/* الحاوية الرئيسية */
+.checkout-container {
+    max-width: 1200px;
+    margin-top: 0.5rem ;
+    padding: 0 10px;
+    direction: rtl; /* لضمان الترتيب من اليمين لليسار */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* نظام المراحل - Stepper */
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.stepper-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+}
+
+.step-counter {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.stepper-item.active .step-counter {
+    background: #27ae60;
+    color: white;
+    box-shadow: 0 0 0 5px rgba(39, 174, 96, 0.2);
+}
+
+.stepper-item.completed .step-counter {
+    background: #27ae60;
+    color: white;
+}
+
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+
+.billing-details {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+}
+
+.section-title {
+    font-size: 1.5rem;
+
+    color: #333;
+    border-right: 5px solid #27ae60;
+    padding-right: 15px;
+}
+
+
+.form-row {
+    display: flex;
+    gap: 10px;
+
+}
+.form-row .input-group1 {
+width: 80%;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+ margin-top: 3px;
+    width: 95%;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.input-group input {
+    width: 90%; /* هذا سيصلح مشكلة الحقول الصغيرة في الصورة */
+    padding: 12px 15px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #27ae60;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+}
+
+/* خيار الدفع */
+.payment-methods {
+    margin-top: 5px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 2px solid #27ae60;
+    border-radius: 12px;
+    background: rgba(39, 174, 96, 0.05);
+    cursor: pointer;
+}
+
+/* زر التأكيد */
+.confirm-btn {
+    width: 100%;
+    padding: 18px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.confirm-btn:hover {
+    background: #219150;
+    transform: translateY(-2px);
+}
+
+/* ملخص الطلب الجانبي */
+.order-summary {
+    position: sticky;
+    top: 20px;
+}
+
+.summary-card {
+    background: #fdfdfd;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+}
+
+.mini-items-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.mini-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.mini-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.mini-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-info .title {
+    font-weight: 600;
+    color: #333;
+}
+
+.mini-info .price {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* الفوتر */
+.secure-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+}
+
+.payment-logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.payment-logos img {
+    height: 25px;
+}
+
+/* رسالة النجاح */
+.success-message {
+    text-align: center;
+    background: white;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 850px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+}
+.back-home-btn{
+
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  border: none;
+  border-radius: 50px; /* شكل كبسولة عصري */
+  font-size: 1.1rem;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+}
+

@@ -1,0 +1,45 @@
+<app-nav3></app-nav3>
+
+<div class="container">
+  <header class="section-header">
+    <h2>منتجات قسم: <span>{{ categoryName | titlecase }}</span></h2>
+   
+  </header>
+
+  <div class="cards-grid">
+    @for (prod of products; track prod.id) {
+      <div class="product-card">
+        <div class="image-container">
+          <img [src]="prod.thumbnail" [alt]="prod.title">
+          
+          <div class="card-overlay">
+            <button class="action-btn wishlist" title="أضف للمفضلة" (click)="handleProtectedAction('favorite', prod)">
+              <span class="material-icons">favorite_border</span>
+            </button>
+            <button class="action-btn cart" title="إضافة للسلة" (click)="handleProtectedAction('cart', prod)">
+              <span class="material-icons">shopping_cart</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="info">
+          <span class="category-tag">{{ categoryName }}</span>
+          <h3>{{ prod.title }}</h3>
+          <div class="price-row">
+            <p class="price">${{ prod.price }}</p>
+            <button class="details-link" [routerLink]="['/ProductDetail', prod.id]">
+              التفاصيل 
+            </button>
+          </div>
+        </div>
+      </div>
+    } @empty {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>جاري تحميل منتجات هذا القسم...</p>
+      </div>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>

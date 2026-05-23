@@ -1,0 +1,120 @@
+.cart-page-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  direction: rtl;
+}
+
+.cart-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 30px;
+}
+
+.cart-item-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #eee;
+}
+
+.cart-item-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+.item-details { flex: 1; }
+.item-details h4 { margin: 0 0 5px 0; font-size: 1.1rem; }
+.item-details .category { color: #888; font-size: 0.9rem; margin-bottom: 10px; }
+.item-details .price { font-weight: bold; color: #28a745; font-size: 1.2rem; }
+
+.remove-btn {
+  background: #fff5f5;
+  color: #ff4757;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.remove-btn:hover { background: #ff4757; color: white; }
+
+/* ملخص الفاتورة */
+.summary-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  position: sticky;
+  top: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #333;
+  margin-top: 15px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.empty-cart { text-align: center; padding: 100px 0; }
+.empty-cart .material-icons { font-size: 80px; color: #ccc; }
+
+.shop-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  color: white;
+  border: none;
+  border-radius: 50px; /* شكل كبسولة عصري */
+  font-size: 1.1rem;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(40, 167, 69, 0.2);
+}
+
+.shop-now:hover {
+  transform: translateY(-3px); /* رفعة بسيطة */
+  box-shadow: 0 15px 25px rgba(40, 167, 69, 0.3);
+  background: linear-gradient(135deg, #2ecc71 0%, #28a745 100%);
+}
+
+.shop-now:active {
+  transform: translateY(0);
+}
+
+.shop-now .material-icons {
+  font-size: 22px;
+  color: white;
+  margin: 0;
+}

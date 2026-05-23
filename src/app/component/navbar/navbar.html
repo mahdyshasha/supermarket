@@ -1,0 +1,63 @@
+<div class="img">
+  <div class="section">
+    <p class="titel">super market</p>
+ <form class="search-form">
+  <div class="search-container">
+    <div class="search-wrapper">
+      <input type="text" #searchInput id="text1" placeholder="بحث عن منتجات الماركت..." (input)="onInputChange()">
+      
+      <button type="button" mat-icon-button class="search-inside-btn" (click)="searchCategory(searchInput.value)">
+        <i class="fa-solid fa-magnifying-glass search1"></i>
+      </button>
+    </div>
+
+    @if (showError) {
+      <div class="error-message">
+        <span class="material-icons">error_outline</span>
+        عذراً، هذه الفئة غير موجودة حالياً
+      </div>
+    }
+  </div>
+</form>
+<div class="categories-container">
+  @for (cat of foods.slice(0, 7); track cat.slug) {
+    <div class="chose">
+      <a [routerLink]="['/category', cat.slug]" class="option">{{cat.name}}</a>
+    </div>
+  }
+</div>
+  </div>
+</div>
+
+
+<div class="cards-grid">  
+  @for (cat of foods; track cat.slug) {
+    <div class="card category-card">
+      <div class="category-icon">
+       <img [src]="getImg(cat.slug)" 
+       [alt]="cat.name" 
+       loading="lazy" />
+      </div>
+      <div class="card-content">
+        <h3>{{ cat.name }}</h3>
+        
+        <p class="category-info">
+          قسم خاص بمنتجات <strong>{{ cat.name }}</strong> المتوفرة في المتجر.
+        </p>
+
+<button [routerLink]="['/category', cat.slug]" class="view-btn">
+
+
+  <span>استكشف القسم</span>
+  <i class="arrow-icon">→</i>
+</button>
+      </div>
+    </div>
+  } @empty {
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>جاري تحميل الأقسام من السيرفر...</p>
+    </div>
+  }
+</div>
+    

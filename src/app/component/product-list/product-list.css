@@ -1,0 +1,150 @@
+.orders-page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  direction: rtl;
+}
+
+.page-header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.order-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 25px;
+  border: 1px solid #edf2f7;
+  overflow: hidden;
+}
+
+.order-card-header {
+  background: #f8fafc;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.order-number {
+  font-weight: bold;
+  display: block;
+  color: #2d3748;
+}
+
+.order-date {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.order-status {
+  background: #e2e8f0;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-paid {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.order-card-body {
+  padding: 10px 20px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.order-item:last-child { border-bottom: none; }
+
+.item-img-box img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-left: 15px;
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #2d3748;
+}
+
+.item-info p {
+  margin: 5px 0 0;
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.item-price {
+  margin-right: auto;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.order-card-footer {
+  padding: 15px 20px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #edf2f7;
+}
+
+.final-price {
+  font-size: 1.2rem;
+  color: #e53e3e;
+  font-weight: 800;
+  margin-right: 10px;
+}
+
+.reorder-btn {
+  background: #3182ce;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reorder-btn:hover { background: #2b6cb0; }
+
+/* تنسيق الحالة الفارغة */
+.empty-orders {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon span {
+  font-size: 80px;
+  color: #cbd5e0;
+}
+
+.go-shop-btn {
+  margin-top: 20px;
+  background: #2d3748;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

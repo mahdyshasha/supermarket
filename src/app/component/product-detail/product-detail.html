@@ -1,0 +1,123 @@
+@if (product()) {
+<div class="product-page-container">
+  
+  <aside class="filters-sidebar">
+    <div class="sidebar-card">
+      <h3><span class="material-icons">filter_alt</span> فلترة البحث</h3>
+      
+     <div class="filter-group">
+  <h4>نطاق السعر</h4>
+  <div class="price-inputs">
+    <div class="input-field">
+      <label>من</label>
+      <input type="number" [(ngModel)]="minPrice" placeholder="0">
+    </div>
+    <div class="input-field">
+      <label>إلى</label>
+      <input type="number" [(ngModel)]="maxPrice" placeholder="2000">
+    </div>
+  </div>
+</div>
+
+<button class="apply-btn" (click)="applyFilters()">تحديث النتائج</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="product-main-card">
+      
+      <div class="product-gallery">
+        <div class="main-img-container">
+          <button class="nav-btn prev" (click)="prevImage()" title="الصورة السابقة">
+            <span class="material-icons">chevron_right</span>
+          </button>
+          
+          <img [src]="product().images[currentImgIndex()]" [alt]="product().title" class="fade-in">
+          
+          <button class="nav-btn next" (click)="nextImage()" title="الصورة التالية">
+            <span class="material-icons">chevron_left</span>
+          </button>
+
+          <span class="discount-badge">{{product().discountPercentage}}</span>
+        </div>
+
+        <div class="thumbnails-grid">
+          @for (img of product().images; track img; let i = $index) {
+            <div class="thumb-wrapper" [class.active]="i === currentImgIndex()" (click)="currentImgIndex.set(i)">
+              <img [src]="img" alt="view">
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="product-info-panel">
+        <nav class="breadcrumb">منتجات / {{product().category}} / {{product().brand}}</nav>
+        <h1>{{ product().title }}</h1>
+        
+        <div class="rating-row">
+          <span class="stars">⭐ {{product().rating}}</span>
+          <span class="stock-label" [class.low-stock]="product().stock < 10">
+            {{ product().stock < 10 ? 'كمية محدودة: ' : 'المتوفر: ' }} {{product().stock}}
+          </span>
+        </div>
+
+        <div class="price-section">
+          <span class="current-price">${{ product().price }}</span>
+          <span class="old-price">${{ (product().price * 1.2).toFixed(2) }}</span>
+        </div>
+
+        <p class="full-description">{{ product().description }}</p>
+
+        <div class="specs-grid">
+          <div class="spec-item"><span class="material-icons">branding_watermark</span> <strong>الماركة:</strong> {{product().brand}}</div>
+          <div class="spec-item"><span class="material-icons">scale</span> <strong>الوزن:</strong> {{product().weight}}g</div>
+          <div class="spec-item"><span class="material-icons">verified</span> <strong>الضمان:</strong> {{product().warrantyInformation}}</div>
+          <div class="spec-item"><span class="material-icons">local_shipping</span> <strong>الشحن:</strong> {{product().shippingInformation}}</div>
+        </div>
+<div class="action-buttons">
+  <button class="add-btn" (click)="handleProtectedAction('cart')">
+    <span class="material-icons" >shopping_cart</span>
+    إضافة إلى السلة
+    
+    @if (showMoney()) {
+      <div class="floating-icons">
+        <span>💵</span><span>💰</span><span>💸</span>
+      </div>
+    }
+  </button>
+
+  <button class="wish-btn" (click)="handleProtectedAction('favorite')">
+    <span class="material-icons">favorite</span>
+    
+    @if (showHearts()) {
+      <div class="floating-icons">
+        <span>❤️</span><span>💖</span><span>✨</span>
+      </div>
+    }
+  </button>
+</div>
+      </div>
+    </div>
+
+    <section class="related-section">
+      <h2 class="section-title">منتجات قد تعجبك أيضاً</h2>
+      <div class="related-grid">
+        @for (item of relatedProducts(); track item.id) {
+          <div class="mini-product-card" [routerLink]="['/ProductDetail', item.id]">
+            <div class="mini-img">
+              <img [src]="item.thumbnail" alt="thumbnail">
+            </div>
+            <h4>{{item.title}}</h4>
+            <span class="mini-price">${{item.price}}</span>
+          </div>
+        }
+      </div>
+    </section>
+  </main>
+</div>
+} @else {
+  <div class="loading-wrapper">
+    <div class="spinner"></div>
+    <p>جاري تحميل عالم التسوق الخاص بك...</p>
+  </div>
+}
